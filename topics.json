@@ -1,0 +1,41 @@
+{
+	"topics":[
+		{
+			"name":"/temp",
+			"description":"Temperature from dht11"
+		},
+		{
+			"name":"/hum",
+			"description":"Humidity from dht11"
+		},	
+		{
+			"name":"/img",
+			"description":"Image from camera"
+		},	
+		{
+			"name":"/alarm",
+			"description":"Alarm lock or unlock"
+		},
+		{
+			"name":"/memoryTotal",
+			"description":"Memory total of system"
+		},
+		{
+			"name":"/uptime",
+			"description":"Up time of system"
+		},
+		{
+			"name":"/kernel",
+			"description":"kernel version"
+		}
+		,
+		{
+			"name":"/temperatureUpdate",
+			"description":"temperature of system"
+		},
+		{
+			"name":"/cpuUsageUpdate",
+			"description":"cpu Usage of system"
+		}
+	]
+}

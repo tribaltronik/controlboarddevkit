@@ -1,0 +1,100 @@
+﻿{
+  "//": "Please only change this file when pimatic is NOT running, otherwise pimatic will overwrite your changes.",
+  "settings": {
+    "deviceID":"001",
+    "httpServer": {
+      "enabled": true,
+      "port": 8080      
+    },
+    "database": {
+		"filename":"mydb.db"
+    },
+    "mqtt":{
+    "mainDeviceId":"001",
+    "server":"mqtt://societytools.dynip.sapo.pt:1883",
+	"heartbeatIntervalSecs":"60"
+    }
+  },
+  "plugins": [
+    { 
+      "plugin": "cron" 
+    }, 
+    { 
+      "plugin": "mobile-frontend"
+    }
+  ],
+  "devices": [
+	{ 
+	  "id": "1",
+    "name": "dhtxx example",
+    "class": "DHTxxSensor",
+    "type": 22,
+    "gpio": 18,
+    "interval": 5000
+	},
+  { 
+    "id": "2",
+    "name": "Power Meter",
+    "class": "PowerMeter",
+    "mqtttag": "power",
+    "interval": 5000
+  },
+	{
+    "id": "3",
+	  "class": "SystemSensor",
+	  "name": "System",
+	  "attributes": [
+		{
+		  "name": "cpu"
+		},
+		{
+		  "name": "memory"
+		},
+		{
+		  "name": "diskusage",
+		  "path": "/"
+		}
+	  ]
+	}		
+  ],
+  "rules": [
+
+  ],
+  "pages": [ 
+    {
+      "id": "favourite",
+      "name": "Favourites",
+      "devices": []
+    }
+  ],
+  "groups": [
+
+  ],
+  "users": [
+    {
+      "username": "admin",
+      "password": "",
+      "role": "admin"  
+    }
+  ],
+  "roles": [
+    {
+      "name": "admin",
+      "permissions": {
+        "pages": "write",
+        "rules": "write",
+        "variables": "write",
+        "messages": "write",
+        "events": "write",
+        "devices": "write",
+        "groups": "write",
+        "plugins": "write",
+        "updates": "write",
+        "database": "write",
+        "config": "write",
+        "controlDevices": true,
+        "restart": true
+      }
+    }
+  ]
+}

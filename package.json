@@ -1,0 +1,28 @@
+{
+  "name": "HomeBrainDevice",
+  "version": "0.0.4",
+  "description": "Home Brain - Home Automation and Surveillance",
+  "main": "homebrain.js",
+  "scripts": {
+    "test": "sudo homebrain.js"
+  },
+  "keywords": [
+    "Automation",
+    "Control",
+    "Home",
+    "Domotic"
+  ],
+  "author": "Tiago Ricardo",
+  "license": "ISC",
+  "dependencies": {
+    "cron": "^1.0.9",
+    "fs": "0.0.2",
+    "mqtt": "^1.1.2",
+    "pi-blaster.js": "0.0.2",
+    "sqlite3": "^3.0.5",
+    "node-dht-sensor": "latest",
+    "lame" : "latest",
+    "speaker" : "latest",
+    "adm-zip" : "latest"
+  }
+}
