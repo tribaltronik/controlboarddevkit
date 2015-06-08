@@ -1,7 +1,7 @@
 ﻿/*
 * V.0.0.1
 * Author: Tiago Ricardo
-* Description: Verify periodically for new updates and start the app
+* Description: Start script
 * path: /pi/projects/homebrain/index.js
 */
 
