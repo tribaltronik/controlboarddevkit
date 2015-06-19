@@ -1,11 +1,11 @@
 #!/bin/bash
 ### BEGIN INIT INFO
-# Provides:          /home/pi/projects/homebrain/homebrain.js
+# Provides:          /home/pi/controlboarddevkit/controlboard/controlboard.js
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: forever running /home/pi/projects/homebrain/homebrain.js
+# Short-Description: forever running /home/pi/controlboarddevkit/controlboard.js
 # Description:       /home/pi/projects/homebrain/homebrain.js
 ### END INIT INFO
 #
@@ -16,11 +16,11 @@
 # Source function library.
 . /lib/lsb/init-functions
 
-pidFile="homebrain.pid"
-logFile="/var/run/homebrain.log"
+pidFile="controlboard.pid"
+logFile="/var/run/controlboard.log"
 
 command="node"
-nodeApp="/home/pi/projects/homebrain/homebrain.js"
+nodeApp="/home/pi/controlboarddevkit/controlboard.js"
 foreverApp="forever"
 
 start() {
