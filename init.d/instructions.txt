@@ -1,0 +1,17 @@
+
+# Startup script for Linux-based systems for running a Node.js app when rebooting, using an /etc/init.d script.
+
+########### Instructions #######################################
+
+# Copy the startup script node-app to your /etc/init.d directory:
+
+sudo bash -l
+cp ./init.d/controlboard /etc/init.d/
+
+# Add node-app to the default runlevels:
+
+update-rc.d controlboard defaults
+
+
+
+
