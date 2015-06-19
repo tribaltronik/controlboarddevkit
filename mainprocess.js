@@ -80,7 +80,7 @@ clientMQTT.on('connect', function ()
 });
   
 clientMQTT.on('message', function (topic, message) {
-	if(topic == mainDeviceId+ '/alarm' && ( message == "lock"  || message == "unlock"))
+	if(topic == mainDeviceId+ '/alarm' && ( message.value == "lock"  || message.value == "unlock"))
 	{
 		alarmState = message;
 		rgbled.ON_BLUE();
