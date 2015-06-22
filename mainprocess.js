@@ -118,16 +118,16 @@ http.createServer(function (req, res) {
 var end = +new Date();
 var runningTimems = (end - startTime);
   res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.write('Home Brain Device. - ');
+  res.write('Control Board Device. - ');
   res.write("Running Time: " + convertMillisecondsToDigitalClock(runningTimems).clock  + " Totalms:"  + runningTimems + "ms");
   res.end();
 }).listen(3000);
 
 /* server started */  
-console.log('Home Brain device is running on port 3000'); 
+console.log('Control Board Dev Kit device is running on port 3000'); 
 
 //console.log("Pid: " +process.pid);
-console.log("Starting Home Brain");
+console.log("Starting Control Board Dev Kit");
  
  run = function () {
   //require('./startup').startup().done();
@@ -137,8 +137,8 @@ console.log("Starting Home Brain");
 if(!command || command === "run") {
   run();
 } else {
-  logFile = path.resolve(__dirname, '../../homebrain-daemon.log');
-  pidFile = path.resolve(__dirname, '../../homebrain.pid');
+  logFile = path.resolve(__dirname, '../../controlboard-daemon.log');
+  pidFile = path.resolve(__dirname, '../../controlboard.pid');
 
   init.simple({
     pidfile: pidFile,
