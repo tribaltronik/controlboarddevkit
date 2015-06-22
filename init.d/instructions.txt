@@ -10,7 +10,9 @@ cp ./init.d/controlboard /etc/init.d/
 
 # Add node-app to the default runlevels:
 
-update-rc.d /etc/init.d/controlboard defaults
+cd /etc/init.d
+sudo chmod u+x controlboard
+update-rc.d controlboard defaults
 
 
 
