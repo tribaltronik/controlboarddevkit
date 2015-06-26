@@ -1,22 +1,25 @@
 {
-  "name": "HomeBrainDevice",
+  "name": "ControlBoardDevkit",
   "version": "0.0.4",
-  "description": "Home Brain - Home Automation and Surveillance",
-  "main": "homebrain.js",
+  "description": "ControlBoard - Home Automation and Surveillance",
+  "main": "controlboard.js",
   "scripts": {
-    "test": "sudo homebrain.js"
+    "test": "sudo controlboard.js"
   },
   "keywords": [
     "Automation",
     "Control",
     "Home",
-    "Domotic"
+    "Domotic",
+    "Controlboard"
   ],
   "author": "Tiago Ricardo",
   "license": "ISC",
   "dependencies": {
     "cron": "^1.0.9",
     "fs": "0.0.2",
+    "child_process" : "latest",
+    "util" : "latest",
     "mqtt": "^1.1.2",
     "pi-blaster.js": "0.0.2",
     "sqlite3": "^3.0.5",
