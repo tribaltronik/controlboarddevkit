@@ -19,7 +19,6 @@
     "cron": "^1.0.9",
     "fs": "0.0.2",
     "util" : "latest",
-    "speaker": "latest",
     "mqtt": "^1.1.2",
     "pi-blaster.js": "0.0.2",
     "sqlite3": "^3.0.5",
