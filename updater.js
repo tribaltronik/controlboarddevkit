@@ -11,19 +11,66 @@ var http = require('http');
 var fs = require('fs');
 var request = require("request");
 var AdmZip = require('adm-zip');
+
 //Load config file JSON
 var config = require('./config.json');
 var packageJSON = require('./package.json');
+var systemInfo = require('./lib/systemstatus.js');
+var common = require('./lib/common.js');
 
-
+// Get IP
+common.getID(function(ID){
+		mainDeviceId = ID;
+		console.log("Device ID:" + mainDeviceId);
+	}); //config.settings.deviceID;
+common.getIP(function(IP){
+		DeviceIP = IP;
+		console.log("Device IP:" + DeviceIP);
+	}); //config.settings.deviceID;	
+	
+	
 /*
 / MQTT client to get instructions to update
 */
 var client; //  = mqtt.connect(config.settings.mqtt.server);
 var mainDeviceId = config.settings.deviceID;
 
+// MQTT connection to broker
+var host = 'societytools.dynip.sapo.pt'
+  , myUserId = ''  // your DIoTY userId
+  , myPwd = ''              // your DIoTY password
+  , clientMQTT = mqtt.connect('mqtt://societytools.dynip.sapo.pt:1883');
 
 
+clientMQTT.on('connect', function () 
+{
+  console.log("MQTT Connected ID:" + mainDeviceId);
+
+  clientMQTT.subscribe(mainDeviceId+'/status');
+
+  
+  //Start send info from system
+  systemInfo.Start(clientMQTT,mainDeviceId);
+
+});
+  
+clientMQTT.on('message', function (topic, message) {
+	if(topic == mainDeviceId+ "/status" && message == "get")
+	{
+		console.log("Send status");
+		var end = +new Date();
+		var runningTimems = (end - startTime);
+		clientMQTT.publish(mainDeviceId +'/status',JSON.stringify({'version': packageJSON.version ,'runtime':convertMillisecondsToDigitalClock(runningTimems).clock,'ip':DeviceIP}), {retain: false});
+	}
+	else if(topic == mainDeviceId+'/updateDevice')
+	{
+		if(message == 'update')
+		{
+			clientMQTT.publish(mainDeviceId+'/updateDevice','Updating start from ver:'+packageJSON.version, {retain: false});  
+			updateFirmware(packageJSON.version);
+		}
+	}
+});
 
 // Job to diary at 1:00 check new updates
 var CronJob = require('cron').CronJob;
@@ -79,7 +126,7 @@ function UnzipAndInstall()
     // extracts everything
     zip.extractAllTo(/*target path*/"./", /*overwrite*/true);
 		fs.unlinkSync("./realease.zip");
-		var filePath = "/home/pi/projects/homebrain/script.js" ; 
+		var filePath = "/home/pi/controlboard/script.js" ; 
 		if(fs.existsSync(filePath))
 		{
 			var script = require('./script.js');
@@ -88,8 +135,8 @@ function UnzipAndInstall()
 			// remove the script file
 			fs.unlinkSync(filePath);
 		}
-		console.log('Restart Homebrain');
-		exec("sudo /etc/init.d/homebrain restart"); 
+		console.log('Restart ControlBoard');
+		exec("sudo /etc/init.d/controlboard restart"); 
 
 }
 
@@ -98,6 +145,22 @@ function updateFirmware(version)
 {
 	// Verify if exists new realease
 	var downloadLink = VerifyLastRealease('http://tiago:585182@societytools.dynip.sapo.pt/homebrain/updates/verify.php?version='+version);
+}
+
+function getControlBoardRuntime() 
+{
+	// Get rumtime of controlboard process
+	var options = {
+	  host: 'http://127.0.0.1',
+	  port: 3000,
+	  path: '/runtime'
+	};
+	
+	http.get(options, function(res) {
+	  console.log("Got response: " + res.statusCode);
+	}).on('error', function(e) {
+	  console.log("Got error: " + e.message);
+	});
 }
 
 //this.update("001");
