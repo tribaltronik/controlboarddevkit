@@ -1,0 +1,72 @@
+#!/bin/bash
+### BEGIN INIT INFO
+# Provides:          /home/pi/controlboarddevkit/controlboard/updater.js
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: forever running /home/pi/controlboarddevkit/updater.js
+# Description:       /home/pi/controlboarddevkit/updater.js
+### END INIT INFO
+
+# Source function library.
+. /lib/lsb/init-functions
+
+pidFile="updater.pid"
+logFile="/var/run/updater.log"
+
+command="node"
+nodeApp="/home/pi/controlboarddevkit/updater.js"
+foreverApp="forever"
+
+start() {
+        echo "Starting $nodeApp"
+
+        # Notice that we change the PATH because on reboot
+   # the PATH does not include the path to node.
+   # Launching forever with a full path
+   # does not work unless we set the PATH.
+   PATH=/usr/local/bin:$PATH
+        export NODE_ENV=production
+   #PORT=80
+   sudo $foreverApp start --pidFile $pidFile -l $logFile -a -d -c "$command" $nodeApp
+   RETVAL=$?
+}
+
+restart() {
+        echo -n "Restarting $nodeApp"
+        sudo $foreverApp restart $nodeApp
+        RETVAL=$?
+}
+
+stop() {
+        echo -n "Shutting down $nodeApp"
+   sudo $foreverApp stop $nodeApp
+   RETVAL=$?
+}
+
+status() {
+   echo -n "Status $nodeApp"
+   sudo $foreverApp list
+   RETVAL=$?
+}
+
+case "$1" in
+   start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+   status)
+        status
+       ;;
+   restart)
+        restart
+        ;;
+        *)
+       echo "Usage:  {start|stop|status|restart}"
+       exit 1
+    ;;
+esac
+exit $RETVAL
