@@ -100,7 +100,7 @@ clientMQTT.on('message', function (topic, message) {
 // CONVERT MILLISECONDS TO DIGITAL CLOCK FORMAT
 function convertMillisecondsToDigitalClock(ms) {
 	days = Math.floor(ms / (3600000 * 24)), // 1 day = 36000 * 24 Milliseconds
-    hours = Math.floor(ms / 3600000), // 1 Hour = 36000 Milliseconds
+    hours = Math.floor(ms / 3600000) - (days * 3600000) , // 1 Hour = 36000 Milliseconds
     minutes = Math.floor((ms % 3600000) / 60000), // 1 Minutes = 60000 Milliseconds
     seconds = Math.floor(((ms % 360000) % 60000) / 1000) // 1 Second = 1000 Milliseconds
         return {
