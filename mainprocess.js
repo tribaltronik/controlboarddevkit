@@ -23,7 +23,7 @@ var dht = require('./lib/dht.js');
 //var db = require('./lib/database.js');
 var camera = require('./lib/camera.js');
 var sound = require('./lib/audioplay.js');
-var updater = require('./updater.js');
+//var updater = require('./updater.js');
 var systemInfo = require('./lib/systemstatus.js');
 var common = require('./lib/common.js');
 var mainDeviceId;
