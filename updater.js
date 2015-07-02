@@ -69,7 +69,16 @@ clientMQTT.on('message', function (topic, message) {
 		if(message == 'update')
 		{
 			clientMQTT.publish(mainDeviceId+'/updateDevice','Updating start from ver:'+packageJSON.version, {retain: false});  
-			updateFirmware(packageJSON.version);
+			//updateFirmware(packageJSON.version);
+			child = exec("sudo git pull", {cwd: '/home/pi/controlboarddevkit'}, function (error, stdout, stderr) {
+			    if (error !== null) {
+			      console.log('exec error: ' + error);
+			    } else {
+				 exec("sudo service controlboard restart", function(err, stdout, stderr) {
+			                console.log("Control Board Restart " ); console.log(err);
+			         })
+			    }
+			});
 		}
 	}
 });
