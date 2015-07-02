@@ -18,6 +18,8 @@ var packageJSON = require('./package.json');
 var systemInfo = require('./lib/systemstatus.js');
 var common = require('./lib/common.js');
 
+var startTime = +new Date();
+
 // Get IP
 common.getID(function(ID){
 		mainDeviceId = ID;
