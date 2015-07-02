@@ -7,7 +7,8 @@
 
 // Necessary modules
 var mqtt = require('mqtt');
-var http = require('http');
+var express = require('express')
+var app = express();
 var path = require('path');
 var fs = require('fs');
 //var exec = require('child_process').exec;
@@ -100,14 +101,22 @@ clientMQTT.on('message', function (topic, message) {
 
 
 // »»»»»» Server
-http.createServer(function (req, res) {  
-var end = +new Date();
+app.get('/', function (req, res) {
+  var end = +new Date();
 var runningTimems = (end - startTime);
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.write('Control Board Device. - ');
   res.write("Running Time: " + convertMillisecondsToDigitalClock(runningTimems).clock  + " Totalms:"  + runningTimems + "ms");
   res.end();
-}).listen(3000);
+});
+
+app.get('/runtime', function (req, res) {
+  var end = +new Date();
+  var runningTimems = (end - startTime);
+  res.send(convertMillisecondsToDigitalClock(runningTimems).clock)
+});
+
+app.listen(3000);
 
 /* server started */  
 console.log('Control Board Dev Kit device is running on port 3000'); 
