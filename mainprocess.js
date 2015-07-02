@@ -106,7 +106,7 @@ app.get('/', function (req, res) {
 var runningTimems = (end - startTime);
   res.writeHead(200, {'Content-Type': 'text/plain'});
   res.write('Control Board Device. - ');
-  res.write("Running Time: " + convertMillisecondsToDigitalClock(runningTimems).clock  + " Totalms:"  + runningTimems + "ms");
+  res.write("Running Time: " + common.convertMillisecondsToDigitalClock(runningTimems).clock  + " Totalms:"  + runningTimems + "ms");
   res.end();
 });
 
