@@ -1,6 +1,6 @@
 {
   "name": "ControlBoardDevkit",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ControlBoard - Home Automation and Surveillance",
   "main": "controlboard.js",
   "scripts": {
