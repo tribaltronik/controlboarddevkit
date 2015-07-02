@@ -113,7 +113,7 @@ var runningTimems = (end - startTime);
 app.get('/runtime', function (req, res) {
   var end = +new Date();
   var runningTimems = (end - startTime);
-  res.send(convertMillisecondsToDigitalClock(runningTimems).clock)
+  res.send(common.convertMillisecondsToDigitalClock(runningTimems).clock)
 });
 
 app.listen(3000);
