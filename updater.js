@@ -60,7 +60,7 @@ clientMQTT.on('message', function (topic, message) {
 		console.log("Send status");
 		var end = +new Date();
 		var runningTimems = (end - startTime);
-		clientMQTT.publish(mainDeviceId +'/status',JSON.stringify({'version': packageJSON.version ,'runtime':convertMillisecondsToDigitalClock(runningTimems).clock,'ip':DeviceIP}), {retain: false});
+		clientMQTT.publish(mainDeviceId +'/status',JSON.stringify({'version': packageJSON.version ,'runtime':common.convertMillisecondsToDigitalClock(runningTimems).clock,'ip':DeviceIP}), {retain: false});
 	}
 	else if(topic == mainDeviceId+'/updateDevice')
 	{
