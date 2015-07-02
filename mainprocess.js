@@ -70,7 +70,7 @@ clientMQTT.on('connect', function ()
   systemInfo.Start(clientMQTT,mainDeviceId);
 
   // starts the updater cron
-  updater.Start(clientMQTT,mainDeviceId);
+  //updater.Start(clientMQTT,mainDeviceId);
 
   /*
   * Listen to requests to camera image
