@@ -49,7 +49,7 @@ clientMQTT.on('connect', function ()
   console.log("MQTT Connected ID:" + mainDeviceId);
 
   clientMQTT.subscribe(mainDeviceId+'/status');
-
+  clientMQTT.subscribe(mainDeviceId+'/updateDevice');
   
   //Start send info from system
   systemInfo.Start(clientMQTT,mainDeviceId);
