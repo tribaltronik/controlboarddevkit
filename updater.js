@@ -77,7 +77,7 @@ clientMQTT.on('message', function (topic, message) {
 				      console.log('exec error: ' + error);
 				    } else {
 			                exec("sudo service controlboard start", function(err, stdout, stderr) {
-			                	console.log("Service Control Board Stop " ); console.log(err);
+			                	console.log("Service Control Board Start " ); console.log(err);
 			                });
 				    }
 			         });
