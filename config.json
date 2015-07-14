@@ -10,9 +10,8 @@
 		"filename":"mydb.db"
     },
     "mqtt":{
-    "mainDeviceId":"001",
-    "server":"mqtt://societytools.dynip.sapo.pt:1883",
-	"heartbeatIntervalSecs":"60"
+	    "server":"mqtt://societytools.dynip.sapo.pt:1883",
+	    "heartbeatIntervalSecs":"60"
     }
   },
   "plugins": [
