@@ -1,13 +1,13 @@
 ﻿{
   "//": "ControlBoard config JSON",
   "settings": {
-    "httpServer": {
-      "enabled": true,
-      "port": 3000      
-    },
-    "mqtt":{
-	    "server":"mqtt://societytools.dynip.sapo.pt:1883",
-	    "heartbeatIntervalSecs":"60"
-    }
+	    "httpServer": {
+	      "enabled": true,
+	      "port": 3000      
+	    },
+	    "mqtt":{
+		    "server":"mqtt://societytools.dynip.sapo.pt:1883",
+		    "heartbeatIntervalSecs":"60"
+	    }
   }
 }
