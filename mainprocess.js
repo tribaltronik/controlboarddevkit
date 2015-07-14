@@ -83,6 +83,7 @@ clientMQTT.on('connect', function ()
 clientMQTT.on('message', function (topic, message) {
 	if(topic == mainDeviceId+ '/alarm' && ( message.value == "lock"  || message.value == "unlock"))
 	{
+		console.log('Alarm toogle.');
 		alarmState = message;
 		rgbled.ON_BLUE();
 		setTimeout(function(){ rgbled.ON_GREEN(); }, 3000);
