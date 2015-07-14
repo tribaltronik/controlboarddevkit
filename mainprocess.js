@@ -116,7 +116,7 @@ app.get('/runtime', function (req, res) {
   res.send(common.convertMillisecondsToDigitalClock(runningTimems).clock)
 });
 
-app.listen(3000);
+app.listen(config.settings.httpServer.port);
 
 /* server started */  
 console.log('Control Board Dev Kit device is running on port 3000'); 
