@@ -26,6 +26,7 @@ var sound = require('./lib/audioplay.js');
 //var updater = require('./updater.js');
 var systemInfo = require('./lib/systemstatus.js');
 var common = require('./lib/common.js');
+var config = require('./config.json');
 var mainDeviceId;
 var DeviceIP;
 common.getID(function(ID){
@@ -41,7 +42,7 @@ rgbled.ON_BLUE();
 //Load config file JSON
 var alarmState = "unlock";
 var startTime = +new Date();
-var config = require('./config.json');
+
 
 
 
