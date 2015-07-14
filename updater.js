@@ -38,10 +38,9 @@ var client; //  = mqtt.connect(config.settings.mqtt.server);
 var mainDeviceId = config.settings.deviceID;
 
 // MQTT connection to broker
-var host = 'societytools.dynip.sapo.pt'
-  , myUserId = ''  // your DIoTY userId
+var myUserId = ''  // your DIoTY userId
   , myPwd = ''              // your DIoTY password
-  , clientMQTT = mqtt.connect('mqtt://societytools.dynip.sapo.pt:1883');
+  , clientMQTT = mqtt.connect(config.mqtt.server);
 
 
 clientMQTT.on('connect', function () 
