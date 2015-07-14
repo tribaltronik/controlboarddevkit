@@ -56,6 +56,7 @@ clientMQTT.on('connect', function ()
 });
   
 clientMQTT.on('message', function (topic, message) {
+	/*
 	if(topic == mainDeviceId+ "/status" && message == "get")
 	{
 		console.log("Send status");
@@ -63,7 +64,8 @@ clientMQTT.on('message', function (topic, message) {
 		var runningTimems = (end - startTime);
 		clientMQTT.publish(mainDeviceId +'/status',JSON.stringify({'version': packageJSON.version ,'runtime':common.convertMillisecondsToDigitalClock(runningTimems).clock,'ip':DeviceIP}), {retain: false});
 	}
-	else if(topic == mainDeviceId+'/updateDevice')
+	*/
+	if(topic == mainDeviceId+'/updateDevice')
 	{
 		if(message == 'update')
 		{
