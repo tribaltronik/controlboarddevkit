@@ -19,6 +19,7 @@ var systemInfo = require('./lib/systemstatus.js');
 var common = require('./lib/common.js');
 var child;
 var startTime = +new Date();
+var mainDeviceId;
 
 // Get IP
 common.getID(function(ID){
@@ -34,7 +35,7 @@ common.getIP(function(IP){
 /*
 / MQTT client to get instructions to update
 */
-var client; //  = mqtt.connect(config.settings.mqtt.server);
+var client; 
 var mainDeviceId = config.settings.deviceID;
 
 // MQTT connection to broker
@@ -46,13 +47,8 @@ var myUserId = ''  // your DIoTY userId
 clientMQTT.on('connect', function () 
 {
   console.log("MQTT Connected ID:" + mainDeviceId);
-
   //clientMQTT.subscribe(mainDeviceId+'/status');
   clientMQTT.subscribe(mainDeviceId+'/updateDevice');
-  
-  //Start send info from system
-  systemInfo.Start(clientMQTT,mainDeviceId);
-
 });
   
 clientMQTT.on('message', function (topic, message) {
