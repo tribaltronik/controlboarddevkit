@@ -1,5 +1,5 @@
 ﻿{
-  "//": "Please only change this file when pimatic is NOT running, otherwise pimatic will overwrite your changes.",
+  "//": "",
   "settings": {
     "deviceID":"001",
     "httpServer": {
