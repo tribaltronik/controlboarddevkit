@@ -47,10 +47,9 @@ var config = require('./config.json');
 
 
 // MQTT connection to broker
-var host = 'societytools.dynip.sapo.pt'
-  , myUserId = ''  // your DIoTY userId
+var myUserId = ''  // your DIoTY userId
   , myPwd = ''              // your DIoTY password
-  , clientMQTT = mqtt.connect('mqtt://societytools.dynip.sapo.pt:1883');
+  , clientMQTT = mqtt.connect(config.mqtt.server);
 
 clientMQTT.on('error', function (error) 
 {
