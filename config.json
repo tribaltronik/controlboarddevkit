@@ -1,13 +1,9 @@
 ﻿{
-  "//": "",
+  "//": "ControlBoard config JSON",
   "settings": {
-    "deviceID":"001",
     "httpServer": {
       "enabled": true,
-      "port": 8080      
-    },
-    "database": {
-		"filename":"mydb.db"
+      "port": 3000      
     },
     "mqtt":{
 	    "server":"mqtt://societytools.dynip.sapo.pt:1883",
