@@ -40,7 +40,7 @@ var mainDeviceId = config.settings.deviceID;
 // MQTT connection to broker
 var myUserId = ''  // your DIoTY userId
   , myPwd = ''              // your DIoTY password
-  , clientMQTT = mqtt.connect(config.mqtt.server);
+  , clientMQTT = mqtt.connect(config.settings.mqtt.server);
 
 
 clientMQTT.on('connect', function () 
