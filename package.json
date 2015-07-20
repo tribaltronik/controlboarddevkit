@@ -22,7 +22,6 @@
     "util" : "latest",
     "mqtt": "^1.1.2",
     "pi-blaster.js": "0.0.2",
-    "sqlite3": "^3.0.5",
     "node-dht-sensor": "latest",
     "lame" : "latest",
     "speaker" : "latest",
