@@ -149,7 +149,7 @@ if(!command || command === "run") {
 
 console.log("Green LED light and play sound");
 rgbled.ON_GREEN();
-sound.Play('/home/pi/projects/homebrain/sounds/Robot_blip.mp3');
+sound.Play('/home/pi/controlboarddevkit/sounds/Robot_blip.mp3');
 
 
 
