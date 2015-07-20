@@ -16,6 +16,7 @@
   "author": "Tiago Ricardo",
   "license": "ISC",
   "dependencies": {
+    "express": "latest",
     "cron": "^1.0.9",
     "fs": "0.0.2",
     "util" : "latest",
