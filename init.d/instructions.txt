@@ -13,7 +13,7 @@ sudo cp controlboard /etc/init.d/
 
 cd /etc/init.d
 sudo chmod u+x controlboard
-update-rc.d controlboard defaults
+sudo update-rc.d controlboard defaults
 
 >> updater <<
 # Copy the startup script to your /etc/init.d directory:
@@ -25,4 +25,4 @@ sudo cp updater /etc/init.d/
 
 cd /etc/init.d
 sudo chmod u+x updater
-update-rc.d updater defaults
+sudo update-rc.d updater defaults
