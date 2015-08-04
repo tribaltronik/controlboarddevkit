@@ -3,10 +3,11 @@
 
 ########### Instructions #######################################
 
-# Copy the startup script node-app to your /etc/init.d directory:
+>> controlboard <<
+# Copy the startup script to your /etc/init.d directory:
 
-sudo bash -l
-cp ./init.d/controlboard /etc/init.d/
+cd /home/pi/controlboarddevkit/init.d
+sudo cp controlboard /etc/init.d/
 
 # Add node-app to the default runlevels:
 
@@ -14,6 +15,14 @@ cd /etc/init.d
 sudo chmod u+x controlboard
 update-rc.d controlboard defaults
 
+>> updater <<
+# Copy the startup script to your /etc/init.d directory:
 
+cd /home/pi/controlboarddevkit/init.d
+sudo cp updater /etc/init.d/
 
+# Add node-app to the default runlevels:
 
+cd /etc/init.d
+sudo chmod u+x updater
+update-rc.d updater defaults
