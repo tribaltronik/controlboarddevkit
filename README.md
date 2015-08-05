@@ -37,8 +37,16 @@ sudo apt-get install libasound2-dev
 npm install forever -g
 
 
-11) Get controlboarddevkit
-https://github.com/tribaltronik/controlboarddevkit
-npm update
+11) Get controlboarddevkit:
+- sudo git clone https://github.com/tribaltronik/controlboarddevkit
+- cd controlboarddevkit
+- sudo npm install
 
 
+USE INSTRUCTIONS:
+
+1) Plug the power of raspberry pi;
+
+2) Connect to WiFi AP of raspberry pi "rpi-config-ap" pass "zzzzzzzz";
+
+3) On browser(IE,Chrome,Firefox) put this address "192.168.44.1:88" and select your WiFi network. The raspberry pi will connect to your network wait a few seconds.
