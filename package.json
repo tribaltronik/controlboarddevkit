@@ -4,7 +4,7 @@
   "description": "ControlBoard - Home Automation and Surveillance",
   "main": "controlboard.js",
   "scripts": {
-    "test": "sudo controlboard.js"
+    "start": "sudo controlboard.js"
   },
   "keywords": [
     "Automation",
