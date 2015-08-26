@@ -20,7 +20,7 @@
     "cron": "^1.0.9",
     "fs": "0.0.2",
     "util" : "latest",
-    "mqtt": "^1.1.2",
+    "mqtt": "latest",
     "pi-blaster.js": "0.0.2",
     "node-dht-sensor": "latest",
     "lame" : "latest",
