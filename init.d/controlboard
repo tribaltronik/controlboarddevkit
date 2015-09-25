@@ -20,7 +20,7 @@ pidFile="controlboard.pid"
 logFile="/var/run/controlboard.log"
 
 command="node"
-nodeApp="/home/pi/controlboarddevkit/controlboard.js"
+nodeApp="/home/pi/controlboarddevkit/server.js"
 foreverApp="forever"
 
 start() {
