@@ -4,7 +4,6 @@
 * Description: Main process of system
 */
 
-
 // Necessary modules
 var mqtt = require('mqtt');
 var express = require('express')
@@ -16,13 +15,13 @@ var child_process = require('child_process');
 var packageJSON = require('./package.json');
 
 // load other files 
-var rgbled = require('./lib/rgbled.js')
+//var rgbled = require('./lib/rgbled.js')
 var device = require('./lib/device.js');
 var dht = require('./lib/dht.js');
 // Database
 //var db = require('./lib/database.js');
 var camera = require('./lib/camera.js');
-var sound = require('./lib/audioplay.js');
+//var sound = require('./lib/audioplay.js');
 //var updater = require('./updater.js');
 var systemInfo = require('./lib/systemstatus.js');
 var common = require('./lib/common.js');
@@ -37,7 +36,8 @@ common.getIP(function(IP){
 		DeviceIP = IP;
 		console.log("Device IP:" + DeviceIP);
 	}); //config.settings.deviceID;	
-rgbled.ON_BLUE();
+
+//rgbled.ON_BLUE();
 
 //Load config file JSON
 var alarmState = "unlock";
@@ -56,13 +56,13 @@ clientMQTT.on('error', function (error)
 {
   // message is Buffer 
   console.log('mqtt error: ' + error);
-  rgbled.ON_RED();
+//  rgbled.ON_RED();
 });
 
 clientMQTT.on('connect', function () 
 {
 	console.log("MQTT Connected ID:" + mainDeviceId);
-  rgbled.ON_GREEN();
+//  rgbled.ON_GREEN();
   clientMQTT.subscribe(mainDeviceId+'/status');
   clientMQTT.subscribe(mainDeviceId+ '/alarm');
   clientMQTT.publish('presence', 'Hello mqtt');
@@ -153,8 +153,8 @@ if(!command || command === "run") {
 
 
 console.log("Green LED light and play sound");
-rgbled.ON_GREEN();
-sound.Play('/home/pi/controlboarddevkit/sounds/Robot_blip.mp3');
+//rgbled.ON_GREEN();
+//sound.Play('/home/pi/controlboarddevkit/sounds/Robot_blip.mp3');
 
 
 
