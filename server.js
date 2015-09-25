@@ -15,7 +15,7 @@ var child_process = require('child_process');
 var packageJSON = require('./package.json');
 
 // load other files 
-//var rgbled = require('./lib/rgbled.js')
+var rgbled = require('./lib/rgbled.js')
 var device = require('./lib/device.js');
 var dht = require('./lib/dht.js');
 // Database
@@ -37,7 +37,7 @@ common.getIP(function(IP){
 		console.log("Device IP:" + DeviceIP);
 	}); //config.settings.deviceID;	
 
-//rgbled.ON_BLUE();
+rgbled.ON_BLUE();
 
 //Load config file JSON
 var alarmState = "unlock";
@@ -56,13 +56,13 @@ clientMQTT.on('error', function (error)
 {
   // message is Buffer 
   console.log('mqtt error: ' + error);
-//  rgbled.ON_RED();
+  rgbled.ON_RED();
 });
 
 clientMQTT.on('connect', function () 
 {
 	console.log("MQTT Connected ID:" + mainDeviceId);
-//  rgbled.ON_GREEN();
+  rgbled.ON_GREEN();
   clientMQTT.subscribe(mainDeviceId+'/status');
   clientMQTT.subscribe(mainDeviceId+ '/alarm');
   clientMQTT.publish('presence', 'Hello mqtt');
@@ -89,8 +89,8 @@ clientMQTT.on('message', function (topic, message) {
 		{
 			console.log('Alarm toogle.');
 			alarmState = jsonStatus.value;
-			//rgbled.ON_BLUE();
-			//setTimeout(function(){ rgbled.ON_GREEN(); }, 3000);
+			rgbled.ON_BLUE();
+			setTimeout(function(){ rgbled.ON_GREEN(); }, 3000);
 		}
 	}
 	else if(topic == mainDeviceId+ "/status" && message == "get")
