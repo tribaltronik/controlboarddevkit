@@ -89,8 +89,8 @@ clientMQTT.on('message', function (topic, message) {
 		{
 			console.log('Alarm toogle.');
 			alarmState = jsonStatus.value;
-			rgbled.ON_BLUE();
-			setTimeout(function(){ rgbled.ON_GREEN(); }, 3000);
+			//rgbled.ON_BLUE();
+			//setTimeout(function(){ rgbled.ON_GREEN(); }, 3000);
 		}
 	}
 	else if(topic == mainDeviceId+ "/status" && message == "get")
