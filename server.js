@@ -20,7 +20,7 @@ var device = require('./lib/device.js');
 var dht = require('./lib/dht.js');
 // Database
 //var db = require('./lib/database.js');
-var camera = require('./lib/camera.js');
+//var camera = require('./lib/camera.js');
 //var sound = require('./lib/audioplay.js');
 //var updater = require('./updater.js');
 var systemInfo = require('./lib/systemstatus.js');
@@ -75,7 +75,7 @@ clientMQTT.on('connect', function ()
   /*
   * Listen to requests to camera image
   */
-  camera.Start(clientMQTT,mainDeviceId);
+  //camera.Start(clientMQTT,mainDeviceId);
 
   dht.StartReadDHT(clientMQTT,mainDeviceId);
 });
