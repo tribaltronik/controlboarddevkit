@@ -84,13 +84,18 @@ clientMQTT.on('message', function (topic, message) {
 	
 	if(topic == mainDeviceId+ '/alarm')
 	{
-		var jsonStatus = JSON.parse(message);
-		if(jsonStatus.value == "lock"  || jsonStatus.value == "unlock")
-		{
-			console.log('Alarm toogle.');
-			alarmState = jsonStatus.value;
-			rgbled.ON_BLUE();
-			setTimeout(function(){ rgbled.ON_GREEN(); }, 3000);
+		try {
+			var jsonStatus = JSON.parse(message);
+			if(jsonStatus.value == "lock"  || jsonStatus.value == "unlock")
+			{
+				console.log('Alarm toogle.');
+				alarmState = jsonStatus.value;
+				rgbled.ON_BLUE();
+				setTimeout(function(){ rgbled.ON_GREEN(); }, 3000);
+			}
+		}
+		catch(err) {
+		    console.log("Error:"+err.message);
 		}
 	}
 	else if(topic == mainDeviceId+ "/status" && message == "get")
