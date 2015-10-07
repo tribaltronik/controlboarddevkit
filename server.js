@@ -1,5 +1,5 @@
 ﻿/*
-* Date: 16/4/2015
+* Date: 07/10/2015
 * Author: Tiago Ricardo
 * Description: Main process of system
 */
@@ -44,9 +44,6 @@ var alarmState = "unlock";
 var startTime = +new Date();
 
 
-
-
-
 // MQTT connection to broker
 var myUserId = ''  // your DIoTY userId
   , myPwd = ''              // your DIoTY password
@@ -65,7 +62,7 @@ clientMQTT.on('connect', function ()
   rgbled.ON_GREEN();
   clientMQTT.subscribe(mainDeviceId+'/status');
   clientMQTT.subscribe(mainDeviceId+ '/alarm');
-  clientMQTT.publish('presence', 'Hello mqtt');
+  
   //Start send info from system
   systemInfo.Start(clientMQTT,mainDeviceId);
 
