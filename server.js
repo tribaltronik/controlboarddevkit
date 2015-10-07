@@ -29,7 +29,7 @@ var config = require('./config.json');
 var mainDeviceId;
 var DeviceIP;
 common.getID(function(ID){
-		mainDeviceId = ID;
+		mainDeviceId = ID+"raspi";
 		console.log("Device ID:" + mainDeviceId);
 	}); //config.settings.deviceID;
 common.getIP(function(IP){
