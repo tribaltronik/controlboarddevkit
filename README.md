@@ -37,12 +37,12 @@ npm install forever -g
 
 
 - 11) Get controlboarddevkit:
-  > sudo git clone https://github.com/tribaltronik/controlboarddevkit
-  > cd controlboarddevkit
-  > sudo npm install
+  * sudo git clone https://github.com/tribaltronik/controlboarddevkit
+  * cd controlboarddevkit
+  * sudo npm install
 
 
-- USE INSTRUCTIONS:
+#####USE INSTRUCTIONS:
 
 1) Restart the raspberry pi;
 
