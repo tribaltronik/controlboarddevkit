@@ -2,8 +2,7 @@
 ###RaspberryPi code for ControlBoard.net a IoT Platform
 
 
-
-###INSTALLATION INSTRUCTIONS:
+#####INSTALLATION INSTRUCTIONS:
 
 
 - 1) Driver para wifi rtl8188eu 
@@ -38,9 +37,9 @@ npm install forever -g
 
 
 - 11) Get controlboarddevkit:
-- sudo git clone https://github.com/tribaltronik/controlboarddevkit
-- cd controlboarddevkit
-- sudo npm install
+  > sudo git clone https://github.com/tribaltronik/controlboarddevkit
+  > cd controlboarddevkit
+  > sudo npm install
 
 
 - USE INSTRUCTIONS:
