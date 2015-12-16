@@ -106,8 +106,6 @@ clientMQTT.on('message', function (topic, message) {
   
 
 
-
-
 // »»»»»» Server
 app.get('/', function (req, res) {
   var end = +new Date();
