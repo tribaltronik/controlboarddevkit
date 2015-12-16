@@ -10,10 +10,10 @@ var express = require('express')
 var app = express();
 var path = require('path');
 var fs = require('fs');
-//var exec = require('child_process').exec;
+var exec = require('child_process').exec;
 var child_process = require('child_process');
 var packageJSON = require('./package.json');
-
+var child;
 // load other files 
 var rgbled = require('./lib/rgbled.js')
 var device = require('./lib/device.js');
@@ -101,6 +101,21 @@ clientMQTT.on('message', function (topic, message) {
 		var end = +new Date();
 		var runningTimems = (end - startTime);
 		clientMQTT.publish(mainDeviceId +'/status',JSON.stringify({'version': packageJSON.version +' - CB' ,'runtime':common.convertMillisecondsToDigitalClock(runningTimems).clock,'ip':DeviceIP}), {retain: false});
+	}
+    else if(topic == mainDeviceId+ "/update" && message == "update")
+	{
+		console.log("run Git pull");
+		child = exec("sudo git pull", {cwd: '/home/pi/controlboarddevkit'}, function (error, stdout, stderr) {
+			if (error !== null) {
+				console.log('exec error: ' + error);
+			} else {
+				/*
+				exec("sudo service controlboard start", function(err, stdout, stderr) {
+					console.log("Service Control Board Start " ); console.log(err);
+				});
+				*/
+			}
+		});
 	}
 });
   
