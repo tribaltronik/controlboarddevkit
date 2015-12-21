@@ -23,6 +23,7 @@
     "mqtt": "latest",
     "pi-blaster.js": "0.0.2",
     "node-dht-sensor": "latest",
+    "rpi-433": "^1.1.1",
     "lame" : "latest",
     "speaker" : "latest",
     "adm-zip" : "latest"
