@@ -18,7 +18,7 @@ var child;
 var rgbled = require('./lib/rgbled.js')
 var device = require('./lib/device.js');
 var dht = require('./lib/dht.js');
-var 433protocol = require('./lib/433.js');
+var RF433protocol = require('./lib/433.js');
 // Database
 //var db = require('./lib/database.js');
 var camera = require('./lib/camera.js');
@@ -77,7 +77,7 @@ clientMQTT.on('connect', function ()
 
   dht.StartReadDHT(clientMQTT,mainDeviceId);
   
-  433protocol.Start(clientMQTT,mainDeviceId)
+  RF433protocol.Start(clientMQTT,mainDeviceId)
 });
   
 clientMQTT.on('message', function (topic, message) {
