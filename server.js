@@ -61,7 +61,7 @@ clientMQTT.on('connect', function ()
 {
 	console.log("MQTT Connected ID:" + mainDeviceId);
   rgbled.ON_GREEN();
-  clientMQTT.subscribe(mainDeviceId+'/status');
+  clientMQTT.subscribe(mainDeviceId+ '/status');
   clientMQTT.subscribe(mainDeviceId+ '/topics');
   clientMQTT.subscribe(mainDeviceId+ '/alarm');
   
@@ -109,7 +109,7 @@ clientMQTT.on('message', function (topic, message) {
     else if(topic == mainDeviceId+ "/topics" && message == "topics")
 	{
 		console.log("Send topics");
-		clientMQTT.publish(mainDeviceId +'/topics',JSON.stringify({'topics': ['temp','hum','433','status']}), {retain: true});
+		clientMQTT.publish(mainDeviceId +'/topics',JSON.stringify({'topics': [{'topic':'temp','description':'Temperature'},{'topic':'hum','description':'Humidity'},{'topic':'433','description':'433MHz communication'},{'topic':'status','description':'Status of RaspberryPi(Running time, IP...)'}]}), {retain: true});
 	}
     else if(topic == mainDeviceId+ "/update" && message == "update")
 	{
