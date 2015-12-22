@@ -62,6 +62,7 @@ clientMQTT.on('connect', function ()
 	console.log("MQTT Connected ID:" + mainDeviceId);
   rgbled.ON_GREEN();
   clientMQTT.subscribe(mainDeviceId+'/status');
+  clientMQTT.subscribe(mainDeviceId+ '/topics');
   clientMQTT.subscribe(mainDeviceId+ '/alarm');
   
   //Start send info from system
