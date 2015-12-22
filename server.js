@@ -18,6 +18,7 @@ var child;
 var rgbled = require('./lib/rgbled.js')
 var device = require('./lib/device.js');
 var dht = require('./lib/dht.js');
+var 433protocol = require('./lib/433.js');
 // Database
 //var db = require('./lib/database.js');
 var camera = require('./lib/camera.js');
@@ -75,6 +76,8 @@ clientMQTT.on('connect', function ()
  camera.Start(clientMQTT,mainDeviceId);
 
   dht.StartReadDHT(clientMQTT,mainDeviceId);
+  
+  433protocol.Start(clientMQTT,mainDeviceId)
 });
   
 clientMQTT.on('message', function (topic, message) {
@@ -95,7 +98,7 @@ clientMQTT.on('message', function (topic, message) {
 		    console.log("Error:"+err.message);
 		}
 	}
-	else if(topic == mainDeviceId+ "/status" && message == "get")
+	else if(topic == mainDeviceId+ "/status" && message == "alive")
 	{
 		console.log("Send status");
 		var end = +new Date();
@@ -169,6 +172,7 @@ if(!command || command === "run") {
 
 console.log("Green LED light and play sound");
 rgbled.ON_GREEN();
+
 //sound.Play('/home/pi/controlboarddevkit/sounds/Robot_blip.mp3');
 
 
