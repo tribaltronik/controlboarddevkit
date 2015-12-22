@@ -26,26 +26,23 @@ https://github.com/sabhiram/raspberry-wifi-conf
 - 7) Install Pi-Blaster:
 https://github.com/sarfata/pi-blaster
 
-- 8) Install bcm2835:
+- 8) Install WiringPI:
+http://wiringpi.com/download-and-install/
+
+- 9) Install bcm2835:
 http://www.raspberry-projects.com/pi/programming-in-c/c-libraries/bcm2835-by-mike-mccauley
 
-- 9) Install Libsound2-dev:
+- 10) Install Libsound2-dev:
 sudo apt-get install libasound2-dev
 
-- 10) Install Forever:
+- 11) Install Forever:
 npm install forever -g
 
 
-- 11) Get controlboarddevkit:
+- 12) Get controlboarddevkit:
   * sudo git clone https://github.com/tribaltronik/controlboarddevkit
   * cd controlboarddevkit
   * sudo npm install
 
 
-#####USE INSTRUCTIONS:
 
-1) Restart the raspberry pi;
-
-2) Connect to WiFi AP of raspberry pi "rpi-config-ap" pass "zzzzzzzz";
-
-3) On browser(IE,Chrome,Firefox) put this address "192.168.44.1:88" and select your WiFi network. The raspberry pi will connect to your network wait a few seconds.
