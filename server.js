@@ -105,6 +105,11 @@ clientMQTT.on('message', function (topic, message) {
 		var runningTimems = (end - startTime);
 		clientMQTT.publish(mainDeviceId +'/status',JSON.stringify({'version': packageJSON.version +' - CB' ,'runtime':common.convertMillisecondsToDigitalClock(runningTimems).clock,'ip':DeviceIP}), {retain: false});
 	}
+    else if(topic == mainDeviceId+ "/topics" && message == "topics")
+	{
+		console.log("Send topics");
+		clientMQTT.publish(mainDeviceId +'/topics',JSON.stringify({'topics': ['temp','hum','433','status']}), {retain: true});
+	}
     else if(topic == mainDeviceId+ "/update" && message == "update")
 	{
 		console.log("run Git pull");
