@@ -6,7 +6,7 @@
 	      "port": 3000      
 	    },
 	    "mqtt":{
-		    "server":"mqtt://societytools.dynip.sapo.pt:1883",
+		    "server":"mqtt://mqtt.controlboard.net:1883",
 		    "heartbeatIntervalSecs":"60"
 	    }
   }
